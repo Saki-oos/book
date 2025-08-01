@@ -10,7 +10,7 @@ require 'connectdb.php';
 
 try {
     $stmt = $pdo->query("SELECT * FROM books ORDER BY book_id DESC");
-    $books = $stmt->fetchAll();
+    $books = $stmt->fetchAll(PDO::FETCH_ASSOC); // Fetch as associative array for consistency
 
     echo json_encode([
         "status" => "success",
